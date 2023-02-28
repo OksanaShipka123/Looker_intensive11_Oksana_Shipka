@@ -20,7 +20,7 @@ explore: f_lineitems {
     from: d_dates
     view_label: "Ship Date"
     type: left_outer
-    relationship: many_to_many
+    relationship: many_to_one
     sql_on: ${f_lineitems.l_shipdatekey} = ${ship_date.datekey} ;;
   }
 
@@ -28,7 +28,7 @@ explore: f_lineitems {
     from: d_dates
     view_label: "Commit Date"
     type: left_outer
-    relationship: many_to_many
+    relationship: many_to_one
     sql_on: ${f_lineitems.l_commitdatekey} = ${commit_date.datekey} ;;
   }
 
@@ -36,7 +36,7 @@ explore: f_lineitems {
     from: d_dates
     view_label: "Receipt Date"
     type: left_outer
-    relationship: many_to_many
+    relationship: many_to_one
     sql_on: ${f_lineitems.l_receiptdatekey} = ${receipt_date.datekey} ;;
   }
 
@@ -44,7 +44,7 @@ explore: f_lineitems {
     from: d_dates
     view_label: "Order Date"
     type: left_outer
-    relationship: many_to_many
+    relationship: many_to_one
     sql_on: ${f_lineitems.l_orderdatekey} = ${order_date.datekey} ;;
   }
 
