@@ -50,7 +50,7 @@ view: d_supplier {
     description: "Cohort of suppliers according to Account Balance: <= 0,1—3000,3001—5000,5001—7000,7000 <"
     type: tier
     tiers: [1,3001,5001,7001]
-    style: interval
+    style: integer
     sql: ${s_acctbal} ;;
   }
 

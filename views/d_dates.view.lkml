@@ -7,6 +7,7 @@ view: d_dates {
     timeframes: [
       raw,
       date,
+      day_of_month,
       week,
       month,
       quarter,
@@ -21,6 +22,11 @@ view: d_dates {
     type: number
     primary_key: yes
     sql: ${TABLE}."DATEKEY" ;;
+  }
+
+  dimension: day_of_month {
+    type: number
+    sql: ${TABLE}."DAY_OF_MONTH" ;;
   }
 
   dimension: day_of_week {
