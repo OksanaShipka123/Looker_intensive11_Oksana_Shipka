@@ -14,7 +14,14 @@ view: d_supplier {
 
   dimension: s_name {
     type: string
-    sql: ${TABLE}."S_NAME" ;;
+    sql: ${TABLE}."S_NAME";;
+    drill_fields: [f_lineitems.l_linenumber ]
+    link:{
+    label: "{{ value }}"
+    url: "http://www.google.com/search?q={{ value | url_encode }}"
+    icon_url: "http://google.com/favicon.ico"
+  }
+
   }
 
   dimension: s_nation {
