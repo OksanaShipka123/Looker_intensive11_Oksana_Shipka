@@ -68,4 +68,7 @@ explore: f_lineitems {
     relationship: many_to_one
     sql_on: ${f_lineitems.l_custkey} = ${d_customer.c_custkey} ;;
   }
+
+
+
 }

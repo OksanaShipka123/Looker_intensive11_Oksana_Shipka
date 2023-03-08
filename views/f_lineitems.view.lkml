@@ -186,6 +186,7 @@ view: f_lineitems {
     sql: ${l_extendedprice} ;;
     filters: [l_orderstatus: "F"]
     value_format_name: usd
+    drill_fields: [d_supplier.s_name, d_supplier.s_region]
   }
 
   # Total Cost #
@@ -204,6 +205,8 @@ view: f_lineitems {
     type: number
     sql: ${total_gross_revenue} - ${total_cost} ;;
     value_format_name: usd
+    drill_fields: [l_shipmode, d_supplier.s_region, d_supplier.suppliers_cohort_according_account_balance]
+
   }
 
   # Goss Margin Percentage #
@@ -221,7 +224,7 @@ view: f_lineitems {
     description: "Number of items that were returned by dissatisfied customers"
     type: sum
     sql: ${l_quantity} ;;
-    filters: [is_returned: "yes"]
+    filters: [l_returnflag:"R"]
     value_format: "#,##0"
   }
 
