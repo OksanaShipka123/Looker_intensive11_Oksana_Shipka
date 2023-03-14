@@ -1,3 +1,5 @@
+include: "orders_summary.view.lkml"
+
 view: f_lineitems {
   sql_table_name: "DATA_MART"."F_LINEITEMS"
     ;;
@@ -254,7 +256,5 @@ view: f_lineitems {
     sql: ${total_sale_price} / NULLIF(${d_customer.count},0);;
     value_format_name: usd
   }
-
-
 
 }
