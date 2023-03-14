@@ -69,6 +69,4 @@ explore: f_lineitems {
     sql_on: ${f_lineitems.l_custkey} = ${d_customer.c_custkey} ;;
   }
 
-
-
 }
