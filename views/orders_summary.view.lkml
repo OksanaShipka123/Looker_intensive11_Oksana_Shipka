@@ -7,10 +7,12 @@ view: orders_summary {
     FROM f_lineitems;;
   }
  dimension: l_linenumber {
+  label: "Total Gross"
   type: number
   sql: ${TABLE}."L_LINENUMBER" ;;
 }
   dimension: l_orderpriority {
+    label: "Total Gross2"
     type: string
     sql: ${TABLE}."L_ORDERPRIORITY" ;;
   }
