@@ -1,7 +1,7 @@
 view: sql_runner_query {
   derived_table: {
     sql: SELECT
-        l_supplycost as "test"
+        l_supplycost
         l_extendedprice,
         l_orderstatus
   FROM f_lineitems
