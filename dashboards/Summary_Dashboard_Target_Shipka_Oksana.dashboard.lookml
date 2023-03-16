@@ -1,5 +1,5 @@
 - dashboard: summary_dashboard_target_shipka_oksana
-  title: summary_dashboard_target_shipka_oksana
+  title: Summary Dashboard Target Shipka Oksana
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
