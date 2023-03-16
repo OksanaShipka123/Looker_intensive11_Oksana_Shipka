@@ -2,6 +2,7 @@ connection: "tpchlooker"
 
 # include all the views
 include: "/views/**/*.view"
+include: "/dashboards/Summary_Dashboard_Target_Shipka_Oksana.dashboard.lookml"
 
 datagroup: looker_intensive11_oksana_shipka_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
