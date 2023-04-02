@@ -75,7 +75,7 @@ explore: f_lineitems {
     view_label: "Orders summary"
     type: left_outer
     relationship: many_to_one
-    sql_on: ${f_lineitems.l_orderkey} = ${orders_summary.f_lineitems_l_orderkey} ;;
+    sql_on: ${f_lineitems.l_orderkey} = ${orders_summary.summary_orderkey} ;;
   }
 
 }

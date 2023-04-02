@@ -10,9 +10,8 @@
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     type: looker_line
-    fields: [orders_summary.f_lineitems_total_cost, orders_summary.f_lineitems_total_gross_revenue,
-    orders_summary.order_date_quarter, orders_summary.total_gross_margin]
-    sorts: [orders_summary.order_date_quarter]
+    fields: [f_lineitems.total_gross_margin, order_date.month_num]
+    sorts: [f_lineitems.total_gross_margin desc 0]
     limit: 500
     column_limit: 50
     x_axis_gridlines: false
@@ -93,8 +92,8 @@
     title: Time granularity
     type: field_filter
     default_value: 'Year'
-    allow_multiple_values: true
-    required: false
+    allow_multiple_values: false
+    required: true
     ui_config:
       type: radio_buttons
       display: inline
@@ -105,4 +104,4 @@
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     listens_to_filters: []
-    field: orders_summary.order_date_quarter
+    field: orders_summary.summary_quarter
