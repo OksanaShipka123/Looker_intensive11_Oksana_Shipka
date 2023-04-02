@@ -4,6 +4,7 @@ connection: "tpchlooker"
 include: "/views/**/*.view"
 include: "/dashboards/Summary_Dashboard_Target_Shipka_Oksana.dashboard.lookml"
 
+
 datagroup: looker_intensive11_oksana_shipka_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -68,6 +69,13 @@ explore: f_lineitems {
     type: left_outer
     relationship: many_to_one
     sql_on: ${f_lineitems.l_custkey} = ${d_customer.c_custkey} ;;
+  }
+
+  join: orders_summary {
+    view_label: "Orders summary"
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${f_lineitems.l_orderkey} = ${orders_summary.f_lineitems_l_orderkey} ;;
   }
 
 }

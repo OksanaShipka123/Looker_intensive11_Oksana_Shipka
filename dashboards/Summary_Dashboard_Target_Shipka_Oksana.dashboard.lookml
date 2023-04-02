@@ -6,18 +6,18 @@
   preferred_slug: m8Nc79PKGrjIWEHvZsPWqO
   elements:
   - title: Gross margin trends
-    name: Gross margin trends
+    name: total_gross_margin
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     type: looker_line
-    fields: [f_lineitems.total_gross_margin, order_date.date_val_month]
-    fill_fields: [order_date.date_val_month]
-    sorts: [order_date.date_val_month desc]
+    fields: [orders_summary.f_lineitems_total_cost, orders_summary.f_lineitems_total_gross_revenue,
+    orders_summary.order_date_quarter, orders_summary.total_gross_margin]
+    sorts: [orders_summary.order_date_quarter]
     limit: 500
     column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: false
+    show_view_names: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
@@ -51,9 +51,12 @@
     defaults_version: 1
     series_types: {}
     refresh: 1 hour
+    hidden_pivots: {}
+    hidden_fields: [orders_summary.f_lineitems_total_cost, orders_summary.f_lineitems_total_gross_revenue]
     listen:
-      Customer Region: d_customer.c_region
-      Customer Nation: d_customer.c_nation
+    Customer Region: d_customer.c_region
+    Customer Nation: d_customer.c_nation
+    time granularity: order_date.*
     row: 0
     col: 0
     width: 24
@@ -83,5 +86,23 @@
       display: popover
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
-    listens_to_filters: []
+    listens_to_filters:
+    - Customer Region
     field: d_customer.c_nation
+  - name: time_granularity
+    title: Time granularity
+    type: field_filter
+    default_value: 'Year'
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: radio_buttons
+      display: inline
+      options:
+      - 'Year'
+      - 'Quarter'
+      - 'Month'
+    model: looker_intensive11_oksana_shipka
+    explore: f_lineitems
+    listens_to_filters: []
+    field: orders_summary.order_date_quarter
