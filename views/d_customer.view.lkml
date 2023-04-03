@@ -36,7 +36,15 @@ view: d_customer {
   dimension: c_region {
     type: string
     sql: ${TABLE}."C_REGION" ;;
+    drill_fields: [f_lineitems.c_region ]
+    link:{
+      label: "{{ value }}"
+      url: "https://epam.cloud.looker.com/dashboards/looker_intensive11_oksana_shipka::summary_dashboard_target_shipka_oksana?Region=&Customer+Nation=&Date+Granularity=year{{ _filters['d_customer.c_region'] | url_encode }}
+  | url_encode }}"
+    }
+
   }
+
 
   measure: count {
     type: count
