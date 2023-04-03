@@ -89,6 +89,7 @@ view: d_dates {
   }
 
   dimension: granularity {
+    label: "{% if date_granularity._parameter_value == 'year' %} Year {% elsif date_granularity._parameter_value == 'quarter' %} Quarter {% else %} Month {% endif %}"
     sql:
     {% if date_granularity._parameter_value == 'year' %}
       ${year}

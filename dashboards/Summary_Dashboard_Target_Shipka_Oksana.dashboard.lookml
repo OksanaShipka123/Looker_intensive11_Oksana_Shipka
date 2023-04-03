@@ -5,7 +5,7 @@
   description: ''
   preferred_slug: m8Nc79PKGrjIWEHvZsPWqO
   elements:
-  - title: "{{filter_values.granularity}} Gross margin trends"
+  - title: "Gross margin trends"
     name: total_gross_margin
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
@@ -16,7 +16,7 @@
     column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: true
+    show_view_names: false
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
