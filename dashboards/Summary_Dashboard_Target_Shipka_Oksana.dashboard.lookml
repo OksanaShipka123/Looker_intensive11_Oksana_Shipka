@@ -15,7 +15,6 @@
     limit: 500
     column_limit: 50
     x_axis_gridlines: false
-    x_axis_label: "{{ filter_values.granularity }}"
     y_axis_gridlines: true
     show_view_names: true
     show_y_axis_labels: true

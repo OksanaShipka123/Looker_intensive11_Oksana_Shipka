@@ -245,6 +245,14 @@ view: f_lineitems {
     description: "Number Of Items Returned / Total Number Of Items Sold"
     type: number
     sql: ${count_items_returned}/NULLIF(${count_items_sold},0);;
+    html:
+      {% if value > 50 %}
+        <font color="red">{{ return_rate._rendered_value }}</font>
+      {% elsif value > 30 % and value < 50 %}
+        <font color="orange">{{ return_rate._rendered_value }}</font>
+      {% else %}
+        <font color="green">{{ return_rate._rendered_value }}</font>
+      {% endif %} ;;
     value_format: "0.00%"
   }
 

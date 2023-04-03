@@ -190,7 +190,7 @@ view: orders_summary {
     description: "Total Gross Margin Amount / Total Gross Revenue"
     type: number
     sql: ${total_gross_margin} / NULLIF(${total_gross_revenue},0) ;;
-    value_format: "0.00%"
+
   }
 
 
