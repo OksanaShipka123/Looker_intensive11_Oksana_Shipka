@@ -248,6 +248,8 @@ view: f_lineitems {
     value_format: "0.00%"
   }
 
+
+
   # Average Spend per Customer #
   measure: average_spend_per_customer {
     label: "Average Spend per Customer"

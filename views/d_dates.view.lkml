@@ -45,16 +45,19 @@ view: d_dates {
   }
 
   dimension: month_num {
+    view_label: "{% parameter view_label %}"
     type: number
     sql: ${TABLE}."MONTH_NUM" ;;
   }
 
   dimension: quarter {
+    view_label: "{% parameter view_label %}"
     type: number
     sql: ${TABLE}."QUARTER" ;;
   }
 
   dimension: year {
+    view_label: "{% parameter view_label %}"
     type: number
     sql: ${TABLE}."YEAR" ;;
   }
@@ -63,4 +66,10 @@ view: d_dates {
     type: count
     drill_fields: [month_name]
   }
+
+  parameter: view_label {
+    type: string
+    default_value: "The Granularity"
+  }
+
 }

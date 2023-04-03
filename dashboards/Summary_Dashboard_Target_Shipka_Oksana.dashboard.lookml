@@ -5,16 +5,17 @@
   description: ''
   preferred_slug: m8Nc79PKGrjIWEHvZsPWqO
   elements:
-  - title: Gross margin trends
+  - title: "{{filter_values.granularity}} Gross margin trends"
     name: total_gross_margin
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     type: looker_line
     fields: [f_lineitems.total_gross_margin, order_date.month_num]
-    sorts: [f_lineitems.total_gross_margin desc 0]
+    sorts: [order_date.month_num]
     limit: 500
     column_limit: 50
     x_axis_gridlines: false
+    x_axis_label: "{{ filter_values.granularity }}"
     y_axis_gridlines: true
     show_view_names: true
     show_y_axis_labels: true
@@ -51,18 +52,17 @@
     series_types: {}
     refresh: 1 hour
     hidden_pivots: {}
-    hidden_fields: [orders_summary.f_lineitems_total_cost, orders_summary.f_lineitems_total_gross_revenue]
     listen:
-    Customer Region: d_customer.c_region
-    Customer Nation: d_customer.c_nation
-    time granularity: order_date.*
+      Region: d_customer.c_region
+      Customer Nation: d_customer.c_nation
+      granularity: order_date.month_num
     row: 0
     col: 0
     width: 24
     height: 9
   filters:
-  - name: Customer Region
-    title: Customer Region
+  - name: Region
+    title: Region
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -86,22 +86,21 @@
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     listens_to_filters:
-    - Customer Region
+    - Region
     field: d_customer.c_nation
-  - name: time_granularity
+  - name: granularity
     title: Time granularity
     type: field_filter
-    default_value: 'Year'
-    allow_multiple_values: false
-    required: true
+    default_value: '1'
+    allow_multiple_values: true
+    required: false
     ui_config:
       type: radio_buttons
       display: inline
       options:
-      - 'Year'
-      - 'Quarter'
-      - 'Month'
+      - '1'
+      - '2'
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     listens_to_filters: []
-    field: orders_summary.summary_quarter
+    field: order_date.month_num

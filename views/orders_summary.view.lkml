@@ -103,6 +103,12 @@ view: orders_summary {
     sql: ${TABLE}."f_lineitems.l_orderkey" ;;
   }
 
+  dimension: time_granularity {
+    type: string
+    sql: ${TABLE}.granularity ;;
+  }
+
+
 # Total Sale Price #
   measure: summary_totalprice {
     label: "Total Sale Price"
