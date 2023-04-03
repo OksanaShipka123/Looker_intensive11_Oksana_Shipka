@@ -37,6 +37,7 @@ view: d_supplier {
   dimension: s_region {
     type: string
     sql: ${TABLE}."S_REGION" ;;
+
   }
 
   dimension: s_suppkey {

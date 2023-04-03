@@ -72,4 +72,31 @@ view: d_dates {
     default_value: "The Granularity"
   }
 
+  parameter: date_granularity {
+    type: unquoted
+    allowed_value: {
+      label: "Group by Year"
+      value: "year"
+    }
+    allowed_value: {
+      label: "Group by Quarter "
+      value: "quarter"
+    }
+    allowed_value: {
+      label: "Group by Month "
+      value: "month"
+    }
+  }
+
+  dimension: granularity {
+    sql:
+    {% if date_granularity._parameter_value == 'year' %}
+      ${year}
+    {% elsif date_granularity._parameter_value == 'quarter' %}
+      ${quarter}
+    {% else %}
+      ${month_num}
+    {% endif %};;
+  }
+
 }

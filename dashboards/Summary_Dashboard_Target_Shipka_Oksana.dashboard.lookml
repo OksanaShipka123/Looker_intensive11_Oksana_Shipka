@@ -10,8 +10,8 @@
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     type: looker_line
-    fields: [f_lineitems.total_gross_margin, order_date.month_num]
-    sorts: [order_date.month_num]
+    fields: [f_lineitems.total_gross_margin, order_date.granularity]
+    sorts: [order_date.granularity]
     limit: 500
     column_limit: 50
     x_axis_gridlines: false
@@ -55,7 +55,7 @@
     listen:
       Region: d_customer.c_region
       Customer Nation: d_customer.c_nation
-      granularity: order_date.month_num
+      Date Granularity: order_date.date_granularity
     row: 0
     col: 0
     width: 24
@@ -88,19 +88,16 @@
     listens_to_filters:
     - Region
     field: d_customer.c_nation
-  - name: granularity
-    title: Time granularity
+  - name: Date Granularity
+    title: Date Granularity
     type: field_filter
-    default_value: '1'
+    default_value: year
     allow_multiple_values: true
     required: false
     ui_config:
       type: radio_buttons
       display: inline
-      options:
-      - '1'
-      - '2'
     model: looker_intensive11_oksana_shipka
     explore: f_lineitems
     listens_to_filters: []
-    field: order_date.month_num
+    field: order_date.date_granularity
